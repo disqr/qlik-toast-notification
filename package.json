@@ -1,6 +1,6 @@
 {
   "name": "disqr-toast-notification",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Centrally configured Notifications for Qlik Cloud apps, read live from a Notifications App.",
   "license": "MIT",
   "author": {
