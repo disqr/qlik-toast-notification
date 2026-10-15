@@ -1,0 +1,22 @@
+// Notifications App load script for the Excel template.
+// 1. Upload notifications-template.xlsx to the Notifications App's space (Data files).
+// 2. Change the path below to match (`lib://<Space name>:DataFiles/...` for a shared
+//    space, `lib://DataFiles/...` for your personal space), then reload. Schedule the reload (e.g. every 15 min)
+//    so Viewers see edits on their next sheet load.
+
+[Notifications]:
+LOAD
+    Text([notification.id])             AS [notification.id],
+    [notification.title],
+    [notification.body],
+    [notification.format],
+    [notification.severity],
+    [notification.category],
+    [notification.start_utc],
+    [notification.end_utc],
+    [notification.channel],
+    [notification.target_app_ids],
+    [notification.link_url],
+    [notification.link_label]
+FROM [lib://DataFiles/notifications-template.xlsx]
+(ooxml, embedded labels, table is Notifications);

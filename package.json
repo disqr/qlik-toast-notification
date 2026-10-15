@@ -1,0 +1,59 @@
+{
+  "name": "disqr-toast-notification",
+  "version": "0.1.0",
+  "description": "Centrally configured Notifications for Qlik Cloud apps, read live from a Notifications App.",
+  "license": "MIT",
+  "author": {
+    "name": "DI Squared LLC",
+    "email": "trey.smith@disqr.com"
+  },
+  "homepage": "https://github.com/disqr/qlik-toast-notification#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/disqr/qlik-toast-notification.git"
+  },
+  "bugs": {
+    "url": "https://github.com/disqr/qlik-toast-notification/issues"
+  },
+  "keywords": [
+    "qlik",
+    "qlik-cloud",
+    "nebula",
+    "stardust",
+    "extension",
+    "notifications"
+  ],
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "main": "dist/disqr-toast-notification.js",
+  "module": "dist/disqr-toast-notification.esm.js",
+  "scripts": {
+    "build": "nebula build --typescript",
+    "start": "nebula serve",
+    "sense": "nebula sense --meta src/meta.json",
+    "test": "node --test \"src/**/*.test.ts\"",
+    "package": "npm run build && npm run sense && node scripts/package.mjs"
+  },
+  "devDependencies": {
+    "@nebula.js/cli": "7.7.0",
+    "@nebula.js/cli-build": "7.7.0",
+    "@nebula.js/cli-sense": "7.7.0",
+    "@nebula.js/cli-serve": "7.7.0",
+    "@rollup/plugin-typescript": "12.3.0",
+    "tslib": "^2.8.1",
+    "typescript": ">=5.9.3 <7"
+  },
+  "peerDependencies": {
+    "@nebula.js/stardust": ">=7.0.0"
+  },
+  "dependencies": {
+    "@qlik/api": "2.19.0",
+    "dompurify": "3.4.16",
+    "marked": "18.0.14",
+    "preact": "10.29.8"
+  }
+}

@@ -1,0 +1,11 @@
+// Sample Notifications App load script.
+// The extension only needs these `notification.*` fields. Load them from
+// anywhere (Excel, QVD, database); this inline table is for testing.
+
+[Notifications]:
+LOAD * INLINE [
+notification.id|notification.title|notification.body|notification.format|notification.severity|notification.category|notification.start_utc|notification.end_utc|notification.channel|notification.target_app_ids|notification.link_url|notification.link_label
+N-001|Welcome|Notifications are working.|text|info|Announcement|2026-01-01T00:00:00Z||all||||
+N-002|Late sales feed|The **Sales** feed is delayed. Numbers after *06:00 UTC* may be incomplete.|markdown|warning|Data quality|2026-01-01T00:00:00Z|2027-01-01T00:00:00Z|sales||||
+N-003|New KPI sheet|A new KPI sheet is available.|text|success|Enhancement|2026-01-01T00:00:00Z|||REPLACE-WITH-HOST-APP-ID|https://example.com|Read more
+] (delimiter is '|');
