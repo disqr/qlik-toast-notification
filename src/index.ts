@@ -19,6 +19,7 @@ import type { Notification } from './notifications/types.ts';
 import properties, { type Properties } from './object-properties.ts';
 import { readNotificationsApp, ReadError } from './source/read-notifications-app.ts';
 import { STRINGS } from './strings.ts';
+import { DEFAULT_DISPLAY_TIMES, readDisplayTime } from './ui/display-time.ts';
 import { resolveLook } from './ui/look.ts';
 import { createOverlayHost } from './ui/overlay-host.ts';
 import { NotificationsView, type DisplaySettings, type LoadState } from './ui/NotificationsView.tsx';
@@ -101,6 +102,10 @@ export default function supernova(galaxy: unknown) {
         corner: (layout.display?.corner as DisplaySettings['corner']) ?? 'bottom-right',
         offsetX: Math.max(0, Number(layout.display?.offsetX ?? 16) || 0),
         offsetY: Math.max(0, Number(layout.display?.offsetY ?? 16) || 0),
+        displayTimes: {
+          infoSuccess: readDisplayTime(layout.display?.infoSuccess, DEFAULT_DISPLAY_TIMES.infoSuccess),
+          warningCritical: readDisplayTime(layout.display?.warningCritical, DEFAULT_DISPLAY_TIMES.warningCritical),
+        },
         whenEmpty: layout.display?.whenEmpty === 'message' ? 'message' : 'blank',
         emptyMessage: layout.display?.emptyMessage ?? STRINGS.defaultEmptyMessage,
       };

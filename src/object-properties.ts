@@ -1,3 +1,4 @@
+import { DEFAULT_DISPLAY_TIMES } from './ui/display-time.ts';
 import { DEFAULT_SEVERITY_COLORS } from './ui/look.ts';
 import { STRINGS } from './strings.ts';
 
@@ -18,6 +19,8 @@ const properties = {
     corner: 'bottom-right',
     offsetX: 16,
     offsetY: 16,
+    infoSuccess: { ...DEFAULT_DISPLAY_TIMES.infoSuccess },
+    warningCritical: { ...DEFAULT_DISPLAY_TIMES.warningCritical },
     whenEmpty: 'blank',
     emptyMessage: STRINGS.defaultEmptyMessage,
   },

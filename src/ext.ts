@@ -1,10 +1,38 @@
 import { ABOUT } from './about.ts';
+import { DEFAULT_DISPLAY_TIMES } from './ui/display-time.ts';
 import { STRINGS } from './strings.ts';
 import { SEVERITIES } from './notifications/types.ts';
 
 const P = STRINGS.props;
 
-const isOverlay = (data: { display?: { displayMode?: string } }) => data?.display?.displayMode === 'overlay';
+type DisplayData = { display?: { displayMode?: string } & Record<string, unknown> };
+
+const isOverlay = (data: DisplayData) => data?.display?.displayMode !== 'contained';
+
+/** A "stay until dismissed" switch plus a seconds field that shows only when the switch is off. */
+const displayTimeItems = (key: 'infoSuccess' | 'warningCritical', stayLabel: string, secondsLabel: string) => ({
+  [`${key}Stay`]: {
+    ref: `display.${key}.stayUntilDismissed`,
+    label: stayLabel,
+    type: 'boolean',
+    component: 'switch',
+    options: [
+      { value: true, label: P.on },
+      { value: false, label: P.off },
+    ],
+    defaultValue: DEFAULT_DISPLAY_TIMES[key].stayUntilDismissed,
+    show: isOverlay,
+  },
+  [`${key}Seconds`]: {
+    ref: `display.${key}.seconds`,
+    label: secondsLabel,
+    type: 'number',
+    defaultValue: DEFAULT_DISPLAY_TIMES[key].seconds,
+    min: 1,
+    show: (data: DisplayData) =>
+      isOverlay(data) && !(data?.display?.[key] as { stayUntilDismissed?: boolean } | undefined)?.stayUntilDismissed,
+  },
+});
 
 export default function ext(/* galaxy */) {
   return {
@@ -66,6 +94,8 @@ export default function ext(/* galaxy */) {
               min: 0,
               show: isOverlay,
             },
+            ...displayTimeItems('infoSuccess', P.infoSuccessStay, P.infoSuccessSeconds),
+            ...displayTimeItems('warningCritical', P.warningCriticalStay, P.warningCriticalSeconds),
             whenEmpty: {
               ref: 'display.whenEmpty',
               label: P.whenEmpty,

@@ -19,8 +19,10 @@ Most severe first (`critical`, `warning`, `success`, `info`), then the most rece
 ![A warning Notification floating over the bottom-right corner of a sample sheet](/screenshots/overlay.png)
 
 - Floats above the sheet in a corner of the browser window, bottom-right by default.
-- `info` and `success` Notifications hide themselves after 8 seconds. That is not a Dismissal: they return on the next sheet load.
-- `warning` and `critical` stay until dismissed.
+- How long a Notification stays on screen is its **Display Time**. There are two settings: one for `info` and `success`, one for `warning` and `critical`. Each is either a number of seconds or **stay until dismissed**. See [Properties](./properties#display).
+- By default, `info` and `success` hide after 8 seconds, and `warning` and `critical` stay until dismissed.
+- Hiding after the Display Time is not a Dismissal: the Notification returns on the next sheet load.
+- While the **+N more** list is expanded, nothing hides on its own.
 - In edit mode, Notifications show inside the object instead, so they don't cover the properties panel.
 
 ## Dismissal

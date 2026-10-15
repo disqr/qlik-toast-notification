@@ -18,6 +18,10 @@ Set at least one Notifications App ID.
 | **Overlay corner** | Bottom right (default), bottom left, top right or top left of the browser window. |
 | **Distance from side (px)** | Overlay gap from the left or right edge. Default 16. |
 | **Distance from top/bottom (px)** | Overlay gap from the top or bottom edge. Default 16. Increase it if the Overlay covers one of Qlik's bars. |
+| **Info and success: stay until dismissed** | Overlay only. Off by default: info and success Notifications hide after the seconds below. |
+| **Info and success: seconds on screen** | Overlay only. Default 8. Shown while the switch above is off. |
+| **Warning and critical: stay until dismissed** | Overlay only. On by default: warning and critical Notifications stay until the Viewer dismisses them. |
+| **Warning and critical: seconds on screen** | Overlay only. Default 30. Shown when the switch above is off. |
 | **When empty** | Contained only. **Blank** (default) or **Show message**. |
 | **Empty message** | Contained only. Text shown when nothing is active. Default "No notifications". |
 

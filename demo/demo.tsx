@@ -6,6 +6,7 @@ import { createDismissals } from '../src/notifications/dismissals.ts';
 import { parseSubscriptions } from '../src/notifications/channels.ts';
 import { parseRow, type Row } from '../src/notifications/parse.ts';
 import type { Notification } from '../src/notifications/types.ts';
+import { DEFAULT_DISPLAY_TIMES } from '../src/ui/display-time.ts';
 import { DEFAULT_SEVERITY_COLORS, type Look } from '../src/ui/look.ts';
 import { NotificationsView, type DisplaySettings, type LoadState } from '../src/ui/NotificationsView.tsx';
 
@@ -66,6 +67,7 @@ const display = (o: Partial<DisplaySettings> = {}): DisplaySettings => ({
   corner: 'bottom-right',
   offsetX: 16,
   offsetY: 16,
+  displayTimes: DEFAULT_DISPLAY_TIMES,
   whenEmpty: 'blank',
   emptyMessage: 'No notifications',
   ...o,

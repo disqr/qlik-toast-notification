@@ -69,7 +69,7 @@ A Notification has **either** a Channel **or** Target App IDs, never both. Rows 
 
 - **Order:** most severe first, then the newest. The top Notification is shown with a "+N more" link.
 - **Dismissal:** a dismissed Notification stays hidden in that browser until it is edited. A `critical` Notification comes back on the next sheet load.
-- **Overlay (default):** the Notifications float above the sheet in a corner of the browser window, bottom-right by default, and the object itself stays empty. You can change the distance from the edges to clear Qlik's bars. `info` and `success` hide themselves after 8 seconds, which doesn't count as a Dismissal. See [ADR-0002](docs/adr/0002-overlay-portal.md).
+- **Overlay (default):** the Notifications float above the sheet in a corner of the browser window, bottom-right by default, and the object itself stays empty. You can change the distance from the edges to clear Qlik's bars. How long Notifications stay on screen is set separately for `info`/`success` (default 8 seconds) and `warning`/`critical` (default: until dismissed). Hiding on its own doesn't count as a Dismissal. See [ADR-0002](docs/adr/0002-overlay-portal.md).
 - **Errors:** if a Notifications App can't be read (no access, wrong ID, missing fields), Viewers see nothing. Developers see the reason in edit mode.
 - **Colors:** fonts and background come from the app theme. Severity colors have accessible defaults that you can change under Severity colors.
 

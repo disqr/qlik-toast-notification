@@ -58,6 +58,10 @@ _Avoid_: Group, topic, tag
 
 ### Presentation
 
+**Display Time**:
+How long an Overlay Notification stays on screen before hiding on its own: a number of seconds, or until dismissed. Set separately for `info`/`success` and `warning`/`critical`. Hiding on its own is not a Dismissal.
+_Avoid_: Timeout, duration, auto-hide
+
 **Display Mode**:
 How the extension presents Notifications on the sheet: **Overlay** (floating over the sheet; the default) or **Contained** (inside the extension's own object).
 _Avoid_: Layout, position

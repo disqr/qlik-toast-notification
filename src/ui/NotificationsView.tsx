@@ -5,6 +5,7 @@ import type { Dismissals } from '../notifications/dismissals.ts';
 import { selectNotifications, type Audience } from '../notifications/select.ts';
 import type { Notification } from '../notifications/types.ts';
 import { STRINGS } from '../strings.ts';
+import { autoHideMs, type DisplayTimes } from './display-time.ts';
 import type { Look } from './look.ts';
 import { NotificationCard } from './NotificationCard.tsx';
 import { CSS } from './styles.ts';
@@ -17,6 +18,8 @@ export interface DisplaySettings {
   /** Overlay distance from the window's side and top/bottom edges, in px. */
   offsetX: number;
   offsetY: number;
+  /** Overlay only: how long Notifications stay on screen. */
+  displayTimes: DisplayTimes;
   whenEmpty: 'blank' | 'message';
   emptyMessage: string;
 }
@@ -34,7 +37,6 @@ interface Props {
   overlayHost?: HTMLElement;
 }
 
-const AUTO_HIDE_MS = 8000;
 const keyOf = (n: Notification) => `${n.sourceAppId}/${n.id}/${n.revision}`;
 
 const cornerStyle = ({ corner, offsetX, offsetY }: DisplaySettings) => {
@@ -79,7 +81,7 @@ export function NotificationsView({ load, audience, display, look, dismissals, e
           notification={n}
           look={look}
           onDismiss={onDismiss}
-          autoHideMs={overlay && !expanded && (n.severity === 'info' || n.severity === 'success') ? AUTO_HIDE_MS : undefined}
+          autoHideMs={overlay && !expanded ? autoHideMs(n.severity, display.displayTimes) : undefined}
           onAutoHide={onAutoHide}
         />
       ))}
