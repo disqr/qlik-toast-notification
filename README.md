@@ -7,7 +7,7 @@ A Qlik Sense extension that shows **Notifications** to people using your Qlik ap
 - Targeting by **Channel** (e.g. `sales`, or `all`) or by specific app IDs
 - Start and end times (UTC)
 - Viewers can dismiss a Notification, and it comes back if you edit it
-- Shown inside the object on the sheet, or floating over the sheet (Overlay)
+- Floats over the sheet (Overlay, the default) or sits inside the object on the sheet (Contained)
 
 Built on [nebula.js](https://qlik.dev/extend/extensions/nebula-js/) and follows Qlik's [extension guidelines](https://qlik.dev/extend/extensions/extension-guidelines/).
 
@@ -30,6 +30,15 @@ Each extension object can read a **Global** Notifications App (tenant-wide) and 
 3. **Add it to a sheet.** In a Host App, open Custom objects → **DI Squared** and drag **Toast Notification** onto a sheet. Then set:
    - **Global Notifications App ID** and/or **Local Notifications App ID**. Pasting the app's URL works too.
    - **Channels** this app subscribes to, e.g. `sales, emea`. Every object also receives `all`.
+
+## Setup on many sheets
+
+An extension runs only while its object is on the open sheet, so each sheet that should show Notifications needs the object. Qlik offers no supported way for an extension to run without a sheet object. Extensions that take up no space do it by hiding Qlik's own grid cells or editing Qlik's menus, which Qlik's [extension guidelines](https://qlik.dev/extend/extensions/extension-guidelines/) rule out. To keep the footprint small:
+
+1. **Use Overlay mode** (the default). Viewers never see the object; the Notifications float over the sheet.
+2. **Make the object as small as the grid allows** and tuck it into a corner. Titles are off by default.
+3. **Hide what's left.** If your theme gives objects a background or border, turn them off under the object's Appearance settings, and turn off the hover menu if your tenant offers that option.
+4. **Configure it once.** Set up one object, then right-click it and choose **Add to master items**. Drag the master item onto each sheet. Changes to the master item apply everywhere it's used.
 
 ## Notifications Table
 
@@ -54,9 +63,9 @@ A Notification has **either** a Channel **or** Target App IDs, never both. Rows 
 
 ## Behavior
 
-- **Order:** most severe first, then the newest. Contained mode shows the top Notification and a "+N more" link.
+- **Order:** most severe first, then the newest. The top Notification is shown with a "+N more" link.
 - **Dismissal:** a dismissed Notification stays hidden in that browser until it is edited. A `critical` Notification comes back on the next sheet load.
-- **Overlay:** opt in under Display. It floats above the sheet in a corner of the browser window, bottom-right by default. You can change the distance from the edges to clear Qlik's bars. `info` and `success` hide themselves after 8 seconds, which doesn't count as a Dismissal. See [ADR-0002](docs/adr/0002-overlay-portal.md).
+- **Overlay (default):** the Notifications float above the sheet in a corner of the browser window, bottom-right by default, and the object itself stays empty. You can change the distance from the edges to clear Qlik's bars. `info` and `success` hide themselves after 8 seconds, which doesn't count as a Dismissal. See [ADR-0002](docs/adr/0002-overlay-portal.md).
 - **Errors:** if a Notifications App can't be read (no access, wrong ID, missing fields), Viewers see nothing. Developers see the reason in edit mode.
 - **Colors:** fonts and background come from the app theme. Severity colors have accessible defaults that you can change under Severity colors.
 

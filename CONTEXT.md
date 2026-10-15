@@ -59,5 +59,5 @@ _Avoid_: Group, topic, tag
 ### Presentation
 
 **Display Mode**:
-How the extension presents Notifications on the sheet: **Contained** (inside the extension's own object) or **Overlay** (floating over the sheet, opt-in).
+How the extension presents Notifications on the sheet: **Overlay** (floating over the sheet; the default) or **Contained** (inside the extension's own object).
 _Avoid_: Layout, position

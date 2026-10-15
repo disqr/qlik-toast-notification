@@ -31,10 +31,10 @@ export default function ext(/* galaxy */) {
               type: 'string',
               component: 'buttongroup',
               options: [
-                { value: 'contained', label: P.contained },
                 { value: 'overlay', label: P.overlay },
+                { value: 'contained', label: P.contained },
               ],
-              defaultValue: 'contained',
+              defaultValue: 'overlay',
             },
             corner: {
               ref: 'display.corner',

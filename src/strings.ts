@@ -12,7 +12,7 @@ export const STRINGS = {
     loading: 'Reading Notifications…',
     readError: (label: string, kind: string, message: string) => `${label} Notifications App: ${kind}. ${message}`,
     skipped: (label: string, count: number) => `${label} Notifications App: ${count} row(s) skipped.`,
-    overlayPreview: 'Overlay mode: in analysis mode these float over the sheet.',
+    overlayPreview: 'Toast Notification · Overlay. Viewers don\'t see this box; Notifications float over the sheet.',
   },
   props: {
     notifications: 'Notifications',

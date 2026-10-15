@@ -14,7 +14,7 @@ const properties = {
     channels: '',
   },
   display: {
-    displayMode: 'contained',
+    displayMode: 'overlay',
     corner: 'bottom-right',
     offsetX: 16,
     offsetY: 16,

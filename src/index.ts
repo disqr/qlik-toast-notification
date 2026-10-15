@@ -97,7 +97,7 @@ export default function supernova(galaxy: unknown) {
       }, [globalAppId, localAppId]);
 
       const display: DisplaySettings = {
-        displayMode: layout.display?.displayMode === 'overlay' ? 'overlay' : 'contained',
+        displayMode: layout.display?.displayMode === 'contained' ? 'contained' : 'overlay',
         corner: (layout.display?.corner as DisplaySettings['corner']) ?? 'bottom-right',
         offsetX: Math.max(0, Number(layout.display?.offsetX ?? 16) || 0),
         offsetY: Math.max(0, Number(layout.display?.offsetY ?? 16) || 0),
