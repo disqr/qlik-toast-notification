@@ -1,0 +1,46 @@
+# Builds and publishes a GitHub release when a version tag (e.g. v0.1.0) is pushed.
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+      - run: npm test
+
+      - name: Check the tag matches package.json
+        run: |
+          version="v$(node -p "require('./package.json').version")"
+          if [ "$version" != "$GITHUB_REF_NAME" ]; then
+            echo "Tag $GITHUB_REF_NAME does not match package.json version $version"
+            exit 1
+          fi
+
+      - run: npm run package
+
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" \
+            release/disqr-toast-notification-*.zip \
+            templates/notifications-template.xlsx \
+            templates/notifications-app-excel.qvs \
+            templates/notifications-app-inline.qvs \
+            --title "Toast Notification $GITHUB_REF_NAME" \
+            --generate-notes \
+            --verify-tag

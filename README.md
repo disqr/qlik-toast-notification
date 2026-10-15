@@ -86,6 +86,17 @@ npm run build     # dist/
 npm run package   # release/disqr-toast-notification-<version>.zip, ready to upload
 ```
 
+### Releasing
+
+Pushing a version tag builds, tests and publishes a GitHub release with the extension zip and the templates attached ([`.github/workflows/release.yml`](.github/workflows/release.yml)):
+
+```sh
+npm version patch   # or minor / major: bumps package.json and creates the tag
+git push --follow-tags
+```
+
+The tag must match the `package.json` version, or the release fails.
+
 - Domain language: [`CONTEXT.md`](CONTEXT.md)
 - Decisions: [`docs/adr/`](docs/adr/)
 
