@@ -10,7 +10,7 @@ export default defineConfig({
   lastUpdated: true,
   head: [['link', { rel: 'icon', type: 'image/png', href: '/qlik-toast-notification/favicon.png' }]],
   themeConfig: {
-    logo: { light: '/logo-light.png', dark: '/logo-dark.png', alt: 'DI Squared' },
+    logo: { src: '/favicon.png', alt: 'DI Squared' },
     siteTitle: 'Toast Notification',
     nav: [
       { text: 'Guide', link: '/guide/getting-started' },

@@ -27,3 +27,10 @@ features:
   - title: Built to Qlik's guidelines
     details: A nebula.js extension with plain text or basic Markdown, four Severities, Dismissal, theme-aware styling and screen reader support.
 ---
+
+<div class="disqr-by">
+  <a href="https://disqr.com" aria-label="DI Squared">
+    <img src="/disqr-logo.png" alt="DI Squared" width="220">
+  </a>
+  <p>Toast Notification is built and maintained by <a href="https://disqr.com">DI Squared</a> and released for free under the MIT License.</p>
+</div>

@@ -24,7 +24,8 @@
 }
 
 .VPNavBarTitle .logo {
-  height: 28px;
+  height: 26px;
+  width: auto;
 }
 
 /* Let the hero screenshot show at a readable size. */
@@ -38,4 +39,28 @@
   .VPHero .image-src {
     max-width: 440px;
   }
+}
+
+/* "Built by DI Squared" block on the home page. */
+.disqr-by {
+  max-width: 1152px;
+  margin: 48px auto 0;
+  padding: 32px 24px;
+  border-top: 1px solid var(--vp-c-divider);
+  text-align: center;
+}
+
+.disqr-by img {
+  display: inline-block;
+  height: auto;
+}
+
+/* The logo has a dark wordmark; show it in white on dark backgrounds. */
+.dark .disqr-by img {
+  filter: brightness(0) invert(1);
+}
+
+.disqr-by p {
+  margin-top: 12px;
+  color: var(--vp-c-text-2);
 }
