@@ -3,7 +3,7 @@ import { useEffect, useMemo } from 'preact/hooks';
 import { renderMarkdown } from '../markdown.ts';
 import type { Notification } from '../notifications/types.ts';
 import { STRINGS } from '../strings.ts';
-import type { Look } from './look.ts';
+import { accentText, type Look } from './look.ts';
 
 interface Props {
   notification: Notification;
@@ -16,6 +16,7 @@ interface Props {
 
 export function NotificationCard({ notification: n, look, onDismiss, autoHideMs, onAutoHide }: Props) {
   const accent = look.severity[n.severity];
+  const text = accentText(look, accent);
   const html = useMemo(() => (n.format === 'markdown' ? renderMarkdown(n.body) : undefined), [n.body, n.format]);
 
   useEffect(() => {
@@ -34,7 +35,7 @@ export function NotificationCard({ notification: n, look, onDismiss, autoHideMs,
       }}
     >
       <div class="qet-head">
-        <span class="qet-badge" style={{ color: accent }}>
+        <span class="qet-badge" style={{ color: text }}>
           {STRINGS.severity[n.severity]}
           {n.category ? ` · ${n.category}` : ''}
         </span>
@@ -49,7 +50,7 @@ export function NotificationCard({ notification: n, look, onDismiss, autoHideMs,
         <div class="qet-body qet-plain">{n.body}</div>
       )}
       {n.link && (
-        <a class="qet-link" href={n.link.url} target="_blank" rel="noopener noreferrer" style={{ color: accent }}>
+        <a class="qet-link" href={n.link.url} target="_blank" rel="noopener noreferrer" style={{ color: text }}>
           {n.link.label || n.link.url}
         </a>
       )}

@@ -15,3 +15,6 @@ test/integration/test-report
 
 disqr-toast-notification-ext/
 release/
+
+# Demo build output
+demo/demo.js

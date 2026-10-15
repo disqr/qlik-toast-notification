@@ -22,5 +22,7 @@ export const CSS = `
 /* MUI's snackbar level (1400); Qlik's charts use MUI. Tune if it covers Qlik dialogs. */
 .qet-overlay { position: fixed; z-index: 1400; height: auto; padding: 0; overflow: auto; }
 .qet-overlay .qet-card { box-shadow: 0 4px 16px rgba(0,0,0,.18); }
+/* Over the sheet the toggle needs its own surface to stay readable. */
+.qet-overlay .qet-more { align-self: flex-end; background: var(--qet-surface, Canvas); padding: 4px 10px; border-radius: 12px; text-decoration: none; box-shadow: 0 2px 8px rgba(0,0,0,.18); }
 .qet-root button:focus-visible, .qet-root a:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
 `;

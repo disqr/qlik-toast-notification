@@ -105,7 +105,14 @@ export function NotificationsView({ load, audience, display, look, dismissals, e
   } else if (overlay && overlayHost) {
     content = stack
       ? createPortal(
-          <div class="qet-root qet-overlay" style={{ ...rootStyle, ...cornerStyle(display) }}>
+          <div
+            class="qet-root qet-overlay"
+            style={{
+              ...rootStyle,
+              ...cornerStyle(display),
+              '--qet-surface': look.background === 'transparent' ? 'Canvas' : look.background,
+            }}
+          >
             {stack}
           </div>,
           overlayHost,

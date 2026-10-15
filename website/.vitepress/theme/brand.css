@@ -1,0 +1,41 @@
+/* DI Squared brand: purple accent, navy surfaces, Arial. */
+:root {
+  --vp-font-family-base: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  --vp-c-brand-1: #6c43ff;
+  --vp-c-brand-2: #5a35e6;
+  --vp-c-brand-3: #6c43ff;
+  --vp-c-brand-soft: rgba(108, 67, 255, 0.12);
+  --vp-home-hero-name-color: #6c43ff;
+  --vp-c-text-1: #14122b;
+  --vp-c-text-2: #2a2740;
+}
+
+.dark {
+  --vp-c-brand-1: #aa89ff;
+  --vp-c-brand-2: #c6b0ff;
+  --vp-c-brand-3: #6c43ff;
+  --vp-c-brand-soft: rgba(170, 137, 255, 0.16);
+  --vp-c-bg: #14122b;
+  --vp-c-bg-alt: #1a1a2e;
+  --vp-c-bg-elv: #1a1a2e;
+  --vp-c-text-1: #ffffff;
+  --vp-c-text-2: #c6b0ff;
+  --vp-home-hero-name-color: #aa89ff;
+}
+
+.VPNavBarTitle .logo {
+  height: 28px;
+}
+
+/* Let the hero screenshot show at a readable size. */
+.VPHero .image-src {
+  max-width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 12px 40px rgba(20, 18, 43, 0.25);
+}
+
+@media (min-width: 960px) {
+  .VPHero .image-src {
+    max-width: 440px;
+  }
+}

@@ -9,6 +9,10 @@ A Qlik Sense extension that shows **Notifications** to people using your Qlik ap
 - Viewers can dismiss a Notification, and it comes back if you edit it
 - Floats over the sheet (Overlay, the default) or sits inside the object on the sheet (Contained)
 
+![A warning Notification floating over a sample sheet](website/public/screenshots/overlay.png)
+
+📖 **Documentation:** https://disqr.github.io/qlik-toast-notification/
+
 Built on [nebula.js](https://qlik.dev/extend/extensions/nebula-js/) and follows Qlik's [extension guidelines](https://qlik.dev/extend/extensions/extension-guidelines/).
 
 > **Status:** v0.1, Qlik Cloud. Qlik Sense Client-Managed should work but has not been tested yet.
@@ -97,6 +101,7 @@ git push --follow-tags
 
 The tag must match the `package.json` version, or the release fails.
 
+- Docs site: [`website/`](website/) (VitePress). Run `npm install && npm run dev` there; [`.github/workflows/docs.yml`](.github/workflows/docs.yml) publishes it to GitHub Pages on push to `main`.
 - Domain language: [`CONTEXT.md`](CONTEXT.md)
 - Decisions: [`docs/adr/`](docs/adr/)
 
