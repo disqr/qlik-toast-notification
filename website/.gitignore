@@ -5,4 +5,5 @@ node_modules
 glossary.md
 public/communication-flow.png
 public/favicon.png
-public/disqr-logo.png
+public/disqr-logo-light.png
+public/disqr-logo-dark.png

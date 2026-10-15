@@ -6,4 +6,5 @@ const terms = context.split('## Language')[1];
 writeFileSync('glossary.md', `<!-- Generated from CONTEXT.md by sync.mjs. Edit CONTEXT.md instead. -->\n\n# Glossary\n\nThe terms used throughout these docs and the code.\n${terms}`);
 copyFileSync('../docs/diagrams/communication-flow.png', 'public/communication-flow.png');
 copyFileSync('../assets/favicon.png', 'public/favicon.png');
-copyFileSync('../assets/disqr-logo.png', 'public/disqr-logo.png');
+copyFileSync('../assets/disqr-logo-light.png', 'public/disqr-logo-light.png');
+copyFileSync('../assets/disqr-logo-dark.png', 'public/disqr-logo-dark.png');

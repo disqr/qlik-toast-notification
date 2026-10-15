@@ -55,9 +55,14 @@
   height: auto;
 }
 
-/* The logo has a dark wordmark; show it in white on dark backgrounds. */
-.dark .disqr-by img {
-  filter: brightness(0) invert(1);
+/* One logo per theme: dark wordmark on light, white wordmark on dark. */
+.disqr-by .logo-dark,
+.dark .disqr-by .logo-light {
+  display: none;
+}
+
+.dark .disqr-by .logo-dark {
+  display: inline-block;
 }
 
 .disqr-by p {

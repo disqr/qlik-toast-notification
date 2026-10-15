@@ -30,7 +30,8 @@ features:
 
 <div class="disqr-by">
   <a href="https://disqr.com" aria-label="DI Squared">
-    <img src="/disqr-logo.png" alt="DI Squared" width="220">
+    <img class="logo-light" src="/disqr-logo-light.png" alt="DI Squared" width="220">
+    <img class="logo-dark" src="/disqr-logo-dark.png" alt="DI Squared" width="220">
   </a>
   <p>Toast Notification is built and maintained by <a href="https://disqr.com">DI Squared</a> and released for free under the MIT License.</p>
 </div>
